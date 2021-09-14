@@ -10,14 +10,6 @@ app
     countries.push(req.body);
     res.send(countries);
   })
-  .delete("/countries/:id", (req, res) => {
-    for (let i = 0; i < countries.length; i++) {
-      if (countries[i].id == req.params.id) {
-        countries.splice(i, 1);
-      }
-    };
-    res.send(countries);
-  })
   .get("/countries", (req, res) => {
     res.send(countries);
   })
@@ -41,5 +33,14 @@ app
       }
     };
     res.send(countries);
-  });
+  })
+  .delete("/countries/:id", (req, res) => {
+    for (let i = 0; i < countries.length; i++) {
+      if (countries[i].id == req.params.id) {
+        countries.splice(i, 1);
+      }
+    };
+    res.send(countries);
+  })
 app.listen("3003");
+console.log("App started on 3003 localhost...");
