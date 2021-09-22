@@ -14,9 +14,9 @@ router.get('/countries', (req, res) => {
         population: '39 510 000'
       },
       {
-        name: 'Florida',
-        city: 'Miami',
-        population: '21 480 000'
+        name: 'Macedonia',
+        city: 'Skopje',
+        population: 'cekame na bugarite da ni kazat'
       },
       {
         name: 'United Kingdom',
