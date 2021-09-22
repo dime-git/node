@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+</head>
+<body>
+    <h2>Countries</h2>
+    <ul>
+        <% countries.map ((country)=>{%>
+          <li class="list"><%= country.name.toUpperCase() === "MACEDONIA" ? country.name + " cela da e" : country.name %></li>
+          <li>City: <%= country.city %></li>
+          <li>Population: <%= country.population %> millions</li>
+        <% }) %>
+    </ul>
+</body>
+</html>
