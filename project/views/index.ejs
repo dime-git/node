@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>With <%= name %></p>
+    <table>
+      <thead>
+        <td>
+          Name
+        </td>
+        <td>
+          Capital
+        </td>
+        <td>
+          Population
+        </td>
+      </thead>
+      <tbody>
+        <% countries.forEach(country => { %>
+          <tr>
+            <td>
+              <%= country.name %>
+            </td>
+            <td>
+              <%= country.capital %>
+            </td>
+            <td>
+              <%= country.population %>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <form action="/countries" method="post">
+      Name <input type="text" name="name" /><br/>
+      Capital <input type="text" name="capital" /><br/>
+      Population <input type="number" name="population" /><br/>
+      <button type="submit">Create</button>
+    </form>
+  </body>
+</html>

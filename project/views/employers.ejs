@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employers</title>
+    <link rel="stylesheet" href="/public/stylesheets/ce.css"/>
+</head>
+<body>
+    <h3>Employers</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Last Name</td>
+                <td>SSN</td>
+                <td>Gender</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% employers.map((employer) => {%>
+                <tr>
+                    <td><%= employer.name %></td>
+                    <td><%= employer.lName %></td>
+                    <td><%= employer.SSN %></td>
+                    <td><%= employer.gender %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table></br>
+    <form action="/employers" method="POST">
+        <input type='text' name='name' placeholder="Name"/></br>
+        <input type='text' name='lName' placeholder="Last Name"/></br>
+        <input type='number' name='SSN' placeholder="SSN"/></br>
+        Gender:</br>
+        <input type='radio' name='gender' value='Male'/>Male
+        <input type='radio' name='gender' value='Female'/>Female
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
