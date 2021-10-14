@@ -1,0 +1,32 @@
+<!-- Include the code that we have extracted out of this file to partials/header (repeating code) -->
+<%- include('../partials/header') %>
+
+<% if (typeof error !== 'undefined') { %>
+  <div class="alert alert-danger" role="alert"><%= error %></div>
+<% } %>
+
+<form action="/employees" method="post" class="mt-5" style="width: 500px; margin: 0 auto;">
+  <div class="input-group">
+    <span class="input-group-text">First and Last Name</span>
+    <input type="text" aria-label="First name" class="form-control" name="first_name">
+    <input type="text" aria-label="Last name" class="form-control" name="last_name">
+  </div>
+  <div class="input-group mt-3">
+    <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2" name="email">
+    <span class="input-group-text" id="basic-addon2">@company-admin.com</span>
+  </div>
+  <div class="input-group mt-3">
+    <span class="input-group-text">$</span>
+    <input type="number" class="form-control" placeholder="Monthly Salary" aria-label="Amount (to the nearest dollar)" name="salary">
+    <span class="input-group-text">.00</span>
+  </div>
+  <select class="form-select mt-3" name="job_title" aria-label="Default select example">
+    <option value="">Select job title</option>
+    <% jobTitles.forEach(jobTitle => { %>
+      <option value="<%= jobTitle._id %>"><%= jobTitle.name %></option>
+    <% }) %>
+  </select>
+  <button type="submit" class="btn btn-primary mt-3">Create</button>
+</form>
+<!-- Include the code that we have extracted out of this file to partials/footer (repeating code) -->
+<%- include('../partials/footer') %>
