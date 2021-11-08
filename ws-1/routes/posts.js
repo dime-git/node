@@ -15,8 +15,9 @@ require('dotenv').config();
 
 // router.use(jwt({ secret: 'shhhhhhared-secret', algorithms: ['HS256']}).unless({path: ['/token']}));
 router.get('/', controller.all)
+      .get('/:id', controller.getByID)
       .get('/users/:id', controller.getByUser)
-      .get('/:id', jwt({ secret: process.env.AUTH_SECRET, algorithms: ['HS256'] }), controller.getByPost)
-      .post('/', jwt({ secret: process.env.AUTH_SECRET, algorithms: ['HS256'] }), controller.create);
+      .post('/', jwt({ secret: process.env.AUTH_SECRET, algorithms: ['HS256'] }), controller.create)
+      .post('/:id/sentiment', jwt({ secret: process.env.AUTH_SECRET, algorithms: ['HS256'] }), controller.sentiment)
 
 module.exports = router;

@@ -13,10 +13,18 @@ const postSchema = mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'user'
   },
-  category: {
-    type: mongoose.Types.ObjectId,
-    ref: 'category'
-  }
+  comments: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'comment'
+    }
+  ],
+  sentiments: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'sentiment'
+    }
+  ]
 }, { timestamps: true });
 
 module.exports = mongoose.model('post', postSchema)

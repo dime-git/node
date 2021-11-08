@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
-const categoryRouter = require('./routes/categories');
-const productRouter = require('./routes/products');
+const commentsRouter = require('./routes/comments');
+
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/test');
+require('dotenv').config();
+
+// mongoose.connect('mongodb://localhost:27017/gen-14-ws');
+mongoose.connect(`mongodb+srv://bobz:${process.env.MONGODB_PASSWORD}@cluster0.ngbhd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,8 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use('/categories', categoryRouter);
-app.use('/products', productRouter);
+app.use('/comments', commentsRouter)
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401).send({

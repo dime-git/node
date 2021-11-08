@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 module.exports = {
+  all: async (req, res) => {
+    const users = await User.find().populate('comments');
+
+    res.send(users);
+  },
   register: async (req, res) => {
     try {
       let user = await User.findOne({ email: req.body.email })
@@ -73,7 +78,7 @@ module.exports = {
         id: user._id,
         email: user.email
       }
-
+      // payload ---enkripcija---> jwt token ----dekripcija---> payload
       const token = jwt.sign(payload, process.env.AUTH_SECRET, {
         expiresIn: '50m'
       });

@@ -17,7 +17,13 @@ const userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  comments: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'comment'
+    }
+  ]
 }, { timestamps: true });
 
 module.exports = mongoose.model('user', userSchema)
