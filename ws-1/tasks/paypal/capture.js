@@ -21,4 +21,4 @@ const captureOrder = async (authorizationId) => {
   console.log(`Capture: ${JSON.stringify(response.result)}`);
 }
 
-captureOrder('3DP93343XH955274L');
+captureOrder('');

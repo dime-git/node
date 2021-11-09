@@ -36,3 +36,11 @@ let createOrder = async function() {
 }
 
 createOrder();
+
+/**
+ * POST /create (za kreiranje na order)
+ * vo request-ot ovaa ruta treba da primi:
+ *  - currency_code i amount
+ * 
+ * vo response-ot od ovaa ruta treba da se vrati order id i link do approve endpoint
+ */
