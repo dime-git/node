@@ -21,7 +21,7 @@ let authorize = async function(orderId) {
     // console.log(`Order: ${JSON.stringify(response.result)}`);
 }
 
-authorize('');
+authorize('9P657957TE938041G');
 
 /**
  * POST /authorize ruta za avtorizacija na odnapred approve-nat order
