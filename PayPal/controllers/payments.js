@@ -46,6 +46,8 @@ module.exports = {
     let response = await client.execute(request);
 
     let authorization = response.result.purchase_units[0].payments.authorizations[0];
+    console.log(response.result.purchase_units);
+    
 
     const payment = await Payment.create({
       user: req.user.id,

@@ -13,8 +13,9 @@ var app = express();
 
 require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/gen-14-ws');
-//mongoose.connect(`mongodb+srv://bobz:${process.env.MONGODB_PASSWORD}@cluster0.ngbhd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
+//mongoose.connect('mongodb://localhost:27017/gen-14-ws');
+//mongoose.connect(`mongodb+srv://dime:${process.env.MONGODB_PASSWORD}@cluster0.ngbhd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`);
+mongoose.connect(`mongodb+srv://dime:${process.env.MONGODB_PASSWORD}@cluster0.hvoxe.mongodb.net/test`)
 
 app.use(logger('dev'));
 app.use(express.json());
